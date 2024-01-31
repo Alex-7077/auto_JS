@@ -1,0 +1,11 @@
+const fse =  require('fs-extra');
+fse.ensureDirSync('Folder№1');
+fse.outputFileSync('Folder№1/file.txt', 'Homework_2 file');
+fse.ensureDirSync('Folder№2');
+fse.moveSync('Folder№1/file.txt', 'Folder№2/file.txt');
+fse.ensureDirSync('Folder№3');
+fse.moveSync('Folder№2/file.txt', 'Folder№3/file.txt');
+fse.removeSync('Folder№3/file.txt');
+fse.removeSync('Folder№1');
+fse.removeSync('Folder№2');
+fse.removeSync('Folder№3');
