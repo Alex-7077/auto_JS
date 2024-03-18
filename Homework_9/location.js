@@ -1,0 +1,9 @@
+const WARSAW_DISTANCE = 558;
+const LONDON_DISTANCE = 1872;
+const NEW_YORK_DISTANCE = 4425;
+
+module.exports = {
+    WARSAW_DISTANCE,
+    LONDON_DISTANCE,
+    NEW_YORK_DISTANCE
+};
