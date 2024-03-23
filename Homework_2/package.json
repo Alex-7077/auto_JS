@@ -1,0 +1,22 @@
+{
+  "name": "homework_2",
+  "version": "1.0.0",
+  "description": "home work 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "node file.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Alex-7077/auto_JS.git"
+  },
+  "author": "Alex Solodky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-7077/auto_JS/issues"
+  },
+  "homepage": "https://github.com/Alex-7077/auto_JS#readme",
+  "devDependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}
