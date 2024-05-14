@@ -1,0 +1,21 @@
+{
+  "name": "hw_14last",
+  "version": "1.0.0",
+  "main": "wdio.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "@wdio/jasmine-framework": "^8.36.1",
+    "chromedriver": "^124.0.1",
+    "jasmine": "^5.1.0",
+    "selenium-standalone": "^9.5.0"
+  }
+}
