@@ -14,7 +14,7 @@ const PreWaiter =require('../../helpers/preWaiter')
 
 
 describe('E2E site check The Fifth Element site', () => {
-    it.skip('should check out the main elements on the home page', () => {
+    it('should check out the main elements on the home page', () => {
         cy.visit('https://5element.by/');
         Catalog.catalogButton.should('be.visible');
         Footer.socialLinks.should('be.visible');
@@ -26,11 +26,11 @@ describe('E2E site check The Fifth Element site', () => {
         MainPage.heroSlider.should('be.visible');
     });
 
-    it.skip('should accept cookies', () => {
+    it('should accept cookies', () => {
         cy.visit('https://5element.by/');
         CookiePopup.waitAndClose();
     });
-    it.skip('should check ability to add items to cart or remove them from there', () => {
+    it('should check ability to add items to cart or remove them from there', () => {
 
         cy.visit('https://5element.by/');
         Catalog.catalogButton.click();
@@ -52,7 +52,7 @@ describe('E2E site check The Fifth Element site', () => {
         Cart.getCartIconWithItemCount().should('not.exist');
         Cart.isCartMainSectionNotExist()
     });
-    it.skip('should check randomly test product filters', () => {
+    it('should check randomly test product filters', () => {
         cy.visit('https://5element.by/');
         MainMenu.clickSmartphonesLink();
 
