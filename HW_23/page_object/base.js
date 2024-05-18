@@ -6,9 +6,8 @@ class Base {
     clickElement(selector) {
         cy.get(selector)
             .should('exist')
-            .should('be.visible')
-            .click();
+            .and('be.visible')
+            .invoke('click');
     }
 }
-
 module.exports = Base;

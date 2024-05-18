@@ -5,7 +5,6 @@ class Footer extends Base {
         return cy.get('.f-social__list a');
     }
 
-
 }
 
 module.exports = new Footer();
