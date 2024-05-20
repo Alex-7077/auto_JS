@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-20T15:18:41.253Z",
+    "end": "2024-05-20T15:19:57.038Z",
+    "duration": 75785,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7f26317a-0645-4a0c-8732-c34545bc92d6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\5element.spec.js",
+      "file": "cypress\\e2e\\5element.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+          "title": "E2E site check The Fifth Element site",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should check out the main elements on the home page",
+              "fullTitle": "E2E site check The Fifth Element site should check out the main elements on the home page",
+              "timedOut": null,
+              "duration": 4598,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://5element.by/');\nCatalog.catalogButton.should('be.visible');\nFooter.socialLinks.should('be.visible');\nHitSalesMenu.secondNavItem.should('be.visible');\nMainMenu.carouselSliderElement.should('be.visible');\nPopularCarousel.carouselCategoriesElement.should('be.visible');\nSeasonalGoods.navBarCarouselElement.should('be.visible');\nServices.navBarCarouselElement.should('be.visible');\nMainPage.heroSlider.should('be.visible');",
+              "err": {},
+              "uuid": "6e3553e4-f2f1-4393-a3cd-c805fb5aa284",
+              "parentUUID": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should accept cookies",
+              "fullTitle": "E2E site check The Fifth Element site should accept cookies",
+              "timedOut": null,
+              "duration": 16057,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://5element.by/');\nCookiePopup.waitAndClose();",
+              "err": {},
+              "uuid": "93acfafc-e385-4309-92e2-73d002b3f302",
+              "parentUUID": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check ability to add items to cart or remove them from there",
+              "fullTitle": "E2E site check The Fifth Element site should check ability to add items to cart or remove them from there",
+              "timedOut": null,
+              "duration": 27585,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://5element.by/');\nCatalog.catalogButton.click();\nCatalog.clickElementByIndex(Catalog.catalogWrap, 1);\ncy.url().should('eq', 'https://5element.by/catalog/9-smartfony-i-gadzhety');\nCatalog.getSmartphonesLink().click();\nCatalog.getAddToCartButton().click();\nCatalog.getGoToCartLink().click();\nCart.getCartIconWithItemCount().should('contain', '1');\nCart.clickCartIcon();\nCart.getInputCounterValue().should('have.value', '1');\nCart.clickPlusButtonMultipleTimes(8);\nCart.getCartIconWithItemCount().should('contain', '9');\nCart.getInputCounterValue().should('have.value', '9');\nCart.clickMinusButtonMultipleTimes(7);\nCart.getCartIconWithItemCount().should('contain', '2');\nCart.getInputCounterValue().should('have.value', '2');\nCart.clickRemoveSelected();\nCart.getCartIconWithItemCount().should('not.exist');\nCart.isCartMainSectionNotExist();",
+              "err": {},
+              "uuid": "9f4be3a0-5b78-4734-8dfd-64a4f16a35d5",
+              "parentUUID": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check randomly test product filters",
+              "fullTitle": "E2E site check The Fifth Element site should check randomly test product filters",
+              "timedOut": null,
+              "duration": 9187,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://5element.by/');\nMainMenu.clickSmartphonesLink();\nPreWaiter.interceptAndWaitForRequests();\nCatalog.selectRandomCheckboxFromFilter1();\nPreWaiter.waitForRequestsToComplete();\nWaiter.waitForCatalogUpdate();\nPreWaiter.interceptAndWaitForRequests();\nCatalog.selectRandomCheckboxFromFilter2();\nPreWaiter.waitForRequestsToComplete();\nWaiter.waitForCatalogUpdate();\nCatalog.selectRandomCheckboxFromFilter3();",
+              "err": {},
+              "uuid": "8cdbb71b-3162-41b4-a6de-028937c881f2",
+              "parentUUID": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check ability to compare products with each other",
+              "fullTitle": "E2E site check The Fifth Element site should check ability to compare products with each other",
+              "timedOut": null,
+              "duration": 14774,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://5element.by/');\nCatalog.catalogButton.click();\nCatalog.clickElementByIndex(Catalog.catalogWrap, 1);\ncy.url().should('eq', 'https://5element.by/catalog/9-smartfony-i-gadzhety');\nCatalog.getSmartphonesLink().click();\nCatalog.selectRandomCheckboxFromFilter1();\nCatalog.clickElement(Catalog.compareButtonSelector);\nCatalog.selectRandomCheckboxFromFilter2();\nCatalog.clickElement(Catalog.compareButtonSelector);\nCatalog.activeCompareButtonSelector;\nCatalog.goToCompareLinkSelector;\nCatalog.productCardSelector.should('exist');\ncy.log('Test completed.');",
+              "err": {},
+              "uuid": "8665b40b-3616-4f39-8fb6-93c4163be7c3",
+              "parentUUID": "92f7bdb0-dd80-44ce-9260-211475cd512f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6e3553e4-f2f1-4393-a3cd-c805fb5aa284",
+            "93acfafc-e385-4309-92e2-73d002b3f302",
+            "9f4be3a0-5b78-4734-8dfd-64a4f16a35d5",
+            "8cdbb71b-3162-41b4-a6de-028937c881f2",
+            "8665b40b-3616-4f39-8fb6-93c4163be7c3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 72201,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

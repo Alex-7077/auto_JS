@@ -1,4 +1,5 @@
 const Base = require('../base');
+const { brandMap, storageMap, ramMap } = require('../../helpers/constants');
 
 class Catalog extends Base {
 
@@ -30,12 +31,16 @@ class Catalog extends Base {
         return 'button[title="В сравнение"]';
     }
 
-    static get activeCompareButtonSelector() {
-        return 'button[title="В сравнение"].active';
+    get activeCompareButtonSelector() {
+        return cy.get('.n-item__icon.ic-compare').eq(0).click();
     }
 
-    static get goToCompareLinkSelector() {
-        return 'a[href="/compare"].btn--index';
+    get goToCompareLinkSelector() {
+        return cy.get('a[href="/compare"].btn--index').click();
+    }
+
+    get productCardSelector() {
+        return cy.get('.card-product.ec-product-item');
     }
 
 
@@ -73,61 +78,11 @@ class Catalog extends Base {
         });
     }
 
-    getBrandMap() {
-        return {
-            'Apple': 'Apple',
-            'BQ-MOBILE': 'BQ',
-            'Cubot': 'Cubot',
-            'HONOR': 'HONOR',
-            'Huawei': 'Huawei',
-            'IIIF150': 'IIIF150',
-            'Infinix': 'Infinix',
-            'Oppo': 'Oppo',
-            'OUKITEL': 'OUKITEL',
-            'POCO': 'POCO',
-            'SAMSUNG': 'SAMSUNG',
-            'TCL': 'TCL',
-            'TECNO': 'TECNO',
-            'ULEFONE': 'ULEFONE',
-            'Umidigi': 'Umidigi',
-            'Unihertz': 'Unihertz',
-            'vivo': 'vivo',
-            'XIAOMI': 'XIAOMI',
-            'ZTE': 'ZTE'
-        };
-    }
-
-    getStorageMap() {
-        return {
-            '1 ТБ': '1 ТБ',
-            '16 ГБ': '16 ГБ',
-            '32 ГБ': '32 ГБ',
-            '64 ГБ': '64 ГБ',
-            '128 ГБ': '128 ГБ',
-            '256 ГБ': '256 ГБ',
-            '512 ГБ': '512 ГБ',
-            '1024 ГБ': '1024 ГБ'
-        };
-    }
-
-    getRamMap() {
-        return {
-            '8 ГБ': '8 ГБ',
-            '4 ГБ': '4 ГБ',
-            '6 ГБ': '6 ГБ',
-            '12 ГБ': '12 ГБ',
-            '3 ГБ': '3 ГБ',
-            '2 ГБ': '2 ГБ',
-            '16 ГБ': '16 ГБ',
-            '1 ГБ': '1 ГБ'
-        };
-    }
-
     compareAndCheckCatalogItem(selectedCheckbox, filterType) {
         const selectedText = selectedCheckbox.labels[0].innerText.trim();
-        const expectedText = filterType === 'brand' ? this.getBrandMap()[selectedText] :
-            filterType === 'storage' ? this.getStorageMap()[selectedText] :
-                this.getRamMap()[selectedText];
+        const expectedText = filterType === 'brand' ? brandMap[selectedText] :
+            filterType === 'storage' ? storageMap[selectedText] :
+                ramMap[selectedText];
         cy.log(`Selected Text: ${selectedText}`);
         cy.log(`Expected Text: ${expectedText}`);
         checkCatalogItemText(expectedText, this.catalogItemLink);
@@ -190,7 +145,7 @@ class Catalog extends Base {
 
 const checkCatalogItemText = (expectedText, catalogItemLink) => {
     if (expectedText) {
-        cy.get(catalogItemLink).should('contain.text', expectedText);
+        cy.get(catalogItemLink.container).should('contain.text', expectedText);
     }
 };
 

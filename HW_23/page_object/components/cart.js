@@ -10,7 +10,11 @@ class Cart {
     }
 
     getInputCounterValue() {
-        return cy.get('input.input-counter-field[data-v-c346a2b4=""]');
+        return cy.get('input[type="text"][autocomplete="off"].input-counter-field');
+    }
+
+    minusButton() {
+        return cy.get('button.input-counter-btn[data-type="minus"][data-field="counter-cart-1"]')
     }
 
     clickMinusButton() {
@@ -21,7 +25,7 @@ class Cart {
         return cy.get('button.input-counter-btn[data-type="plus"][data-field="counter-cart-1"]').click();
     }
     clickRemoveSelected() {
-        return cy.get('a[data-v-c346a2b4=""][href="#"]').contains('Удалить выбранное').click();
+        return cy.get('#cart-g-main > div.shopping-cart > div:nth-child(2) > div > div > div.shopping-grid__main > div.section.section--first > div > div.section-product-heading > div.section-product-heading__link > a').click();
     }
     getCartMainSection() {
         return cy.get('#cart-g-main > div.shopping-cart > div:nth-child(2) > div > div > div.shopping-grid__main > div.section.section--first > div > div.section-product-body');
