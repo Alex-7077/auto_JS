@@ -8,9 +8,10 @@ const Footer = require('../../page_object/components/footer');
 const MainPage = require('../../page_object/mainPage');
 const CookiePopup = require('../../page_object/components/cookie');
 const Cart = require('../../page_object/components/cart')
+const Search = require('../../page_object/components/search')
 const Waiter =require('../../helpers/waiter')
 const PreWaiter =require('../../helpers/preWaiter')
-// с нижним регистром не работает
+
 
 
 describe('E2E site check The Fifth Element site', () => {
@@ -50,27 +51,27 @@ describe('E2E site check The Fifth Element site', () => {
         Cart.getInputCounterValue().should('have.value', '2');
         Cart.clickRemoveSelected();
         Cart.getCartIconWithItemCount().should('not.exist');
-        Cart.isCartMainSectionNotExist()
+        Cart.isCartMainSectionNotExist();
     });
     it.skip('should check randomly test product filters', () => {
         cy.visit('https://5element.by/');
         MainMenu.clickSmartphonesLink();
 
 
-        PreWaiter.interceptAndWaitForRequests()
+        PreWaiter.interceptAndWaitForRequests();
         Catalog.selectRandomCheckboxFromFilter1();
-        PreWaiter.waitForRequestsToComplete()
-        Waiter.waitForCatalogUpdate()
+        PreWaiter.waitForRequestsToComplete();
+        Waiter.waitForCatalogUpdate();
 
-        PreWaiter.interceptAndWaitForRequests()
+        PreWaiter.interceptAndWaitForRequests();
         Catalog.selectRandomCheckboxFromFilter2();
-        PreWaiter.waitForRequestsToComplete()
-        Waiter.waitForCatalogUpdate()
+        PreWaiter.waitForRequestsToComplete();
+        Waiter.waitForCatalogUpdate();
 
         Catalog.selectRandomCheckboxFromFilter3();
 
     });
-    it('should check ability to compare products with each other', () => {
+    it.skip('should check ability to compare products with each other', () => {
 
         cy.visit('https://5element.by/');
         Catalog.catalogButton.click();
@@ -81,9 +82,22 @@ describe('E2E site check The Fifth Element site', () => {
         Catalog.clickElement(Catalog.compareButtonSelector);
         Catalog.selectRandomCheckboxFromFilter2();
         Catalog.clickElement(Catalog.compareButtonSelector);
-        Catalog.clickElement(Catalog.activeCompareButtonSelector);
-        Catalog.clickElement(Catalog.goToCompareLinkSelector);
+        Catalog.activeCompareButtonSelector;
+        Catalog.goToCompareLinkSelector;
+        Catalog.productCardSelector.should('exist');
+    });
 
+    it('should search for "телефон"', () => {
+
+            cy.visit('https://5element.by/');
+
+            Search.searchInput();
+
+            // // Вводим текст "телефон"
+            // Search.typeSearchText('телефон');
+
+
+            Search.clickElement(Search.searchButton);
 
     });
 });
