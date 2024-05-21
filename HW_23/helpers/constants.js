@@ -42,8 +42,22 @@ const ramMap = {
     '1 ГБ': '1 ГБ'
 };
 
+const productId = "793798-smartfon-xiaomi-redmi-note-13-8gb-256gb-midnight-black-ru";
+
+const schema = {
+    type: 'object',
+    required: ['result', 'errors'],
+    properties: {
+        result: { type: 'boolean' },
+        errors: { type: 'array' }
+    }
+};
+
 module.exports = {
     brandMap,
     storageMap,
-    ramMap
+    ramMap,
+    productId,
+    schema
 };
+

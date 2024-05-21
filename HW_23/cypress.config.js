@@ -43,23 +43,23 @@ module.exports = defineConfig({
     },
 
     specPattern: 'cypress/**/*.spec.js',
-    browsers: [
-      {
-        name: 'chrome',
-        family: 'chromium',
-        channel: 'stable',
-        displayName: 'Chrome',
-        version: '123.0.0.0',
-        path: 'C:\Program Files\Google\Chrome\Application\chrome.exe',
-        minSupportedVersion: 64,
-        majorVersion: '125',
-        launchOptions: {
-          args: [
-            "--wm-window-animations-disabled",
-            "--animation-duration-scale=0"
-          ]
-        }
-      },
-    ]
+    // browsers: [
+    //   {
+    //     name: 'chrome',
+    //     family: 'chromium',
+    //     channel: 'stable',
+    //     displayName: 'Chrome',
+    //     version: '123.0.0.0',
+    //     path: 'C:\Program Files\Google\Chrome\Application\chrome.exe',
+    //     minSupportedVersion: 64,
+    //     majorVersion: '125',
+    //     launchOptions: {
+    //       args: [
+    //         "--wm-window-animations-disabled",
+    //         "--animation-duration-scale=0"
+    //       ]
+    //     }
+    //   },
+    // ]
   },
 });
